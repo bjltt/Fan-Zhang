@@ -69,6 +69,9 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
+  # Force all access to the app over SSL, use Strict-Transport-Security,
+      # and use secure cookies.
+      config.force_ssl = true
   config.active_support.deprecation = :notify
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
