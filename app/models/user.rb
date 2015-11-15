@@ -1,4 +1,5 @@
  class User < ActiveRecord::Base
+   has_many :microposts, dependent: :destroy   #  CHANGED
 
 attr_accessor :remember_token
 
@@ -39,5 +40,9 @@ attr_accessor :remember_token
        def forget
           update_attribute(:remember_digest, nil)
        end
+
+       def feed
+                Micropost.where("user_id = ?", id)
+            end
 
     end    
